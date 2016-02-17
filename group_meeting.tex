@@ -1,0 +1,189 @@
+% -*- program: xelatex -*-
+
+\documentclass[12pt, t]{beamer}
+%%% ------------------------------------------------------------------------
+% packages
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, positioning, shapes, backgrounds}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{adjustbox}
+% conditional (for figures)
+\usepackage{etoolbox}
+
+\usepackage{fontspec}
+\usepackage{fontawesome}
+\usepackage{hyperref}
+
+\newtoggle{dark}
+
+%%% ------------------------------------------------------------------------
+% Theming (dark or white)
+\usetheme{default}
+\useoutertheme[subsection=false]{miniframes}
+
+% move navigation to footer
+\setbeamertemplate{headline}{}
+\makeatletter
+\setbeamertemplate{footline}
+  {%
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip2pt\insertnavigation{\paperwidth}\vskip5pt
+  \end{beamercolorbox}%
+  }
+\makeatother
+
+
+% no navigation bar
+\beamertemplatenavigationsymbolsempty
+
+% switch!
+\toggletrue{dark}
+% \togglefalse{dark}
+
+\iftoggle{dark}{%
+	% some colors
+	\definecolor{foreground}{RGB}{255,255,255}
+	\definecolor{background}{RGB}{24,24,24}
+	\definecolor{title}{RGB}{107,174,214}
+	\definecolor{gray}{RGB}{116,116,116}
+	\definecolor{hilight}{RGB}{250, 108, 0}
+	\setbeamercolor{section in head/foot}{fg = title}
+	% set colors for titles, etc.
+	\setbeamercolor{titlelike}{fg=title}
+	\setbeamercolor{subtitle}{fg=title}
+	\setbeamercolor{institute}{fg=gray}
+	\setbeamercolor{normal text}{fg=foreground,bg=background}
+	% % set colors for itemize
+	\setbeamercolor{item}{fg=title} % color of bullets
+	\setbeamercolor{subitem}{fg=gray}
+	\setbeamercolor{itemize/enumerate subbody}{fg=gray}
+}{
+	% some colors
+	\definecolor{foreground}{RGB}{0, 0, 0}
+	\definecolor{background}{RGB}{255,255,255}
+	\definecolor{title}{RGB}{107,174,214}
+	\definecolor{gray}{RGB}{116,116,116}
+	\definecolor{hilight}{RGB}{228, 97, 0}
+	\setbeamercolor{section in head/foot}{fg = title}
+	% set colors
+	\setbeamercolor{titlelike}{fg=title}
+	\setbeamercolor{subtitle}{fg=title}
+	\setbeamercolor{institute}{fg=gray}
+	\setbeamercolor{normal text}{fg=foreground,bg=background}
+	% set colors for itemize
+	\setbeamercolor{item}{fg=foreground} % color of bullets
+	\setbeamercolor{subitem}{fg=gray}
+	\setbeamercolor{itemize/enumerate subbody}{fg=gray}
+}
+
+
+%%% ------------------------------------------------------------------------
+% Meta
+\title{My work @QuantLandscapeEcology}   
+\author{Eduard Szöcs} 
+\institute{Institute for Environmental Sciences, University of Koblenz-Landau}
+\date{Landau, 01.03.2016}
+
+
+
+%%% ------------------------------------------------------------------------
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+%%% -------------------------------
+\section{Introduction} 
+\subsection{}
+\begin{frame}
+\frametitle{My field of research is somewhere between...}
+\center
+\includegraphics[width =.8\textwidth]{fig/wordcloud_abstracts_firstauthor.png} \\	
+\mbox{... Eco(toxico-)logy, Statistics, Data analytics and Programming}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{My philosophy: reproducible and open}
+\vspace{1em}
+\begin{description}
+	\item[reproducible: ]{always!}
+	\item[open: ]{as much as I  am allowed}
+\end{description}
+
+
+\vfill
+Tools I am using and developing:
+\vspace{0.5em}
+\begin{adjustbox}{max totalsize={1\textwidth}{\textheight},center}
+\begin{tikzpicture}
+	\definecolor{gray2}{RGB}{230,230,230}
+	\tikzstyle{every node}=[font=\LARGE]
+    \begin{scope}[fill opacity=0.5, text opacity=1]
+		%R
+		\filldraw[fill=gray2] (0cm,0cm) circle (1.5cm) node [inner sep=0pt] {\includegraphics[width=2.5cm]{/home/edisz/Documents/Uni/Projects/PHD/MISC/AG_presentations/two/fig/R.png}};
+		% PostgreSQL
+   		\filldraw[fill=gray2] (2.7cm,0cm) circle (1.5cm) node [inner sep=0pt] {\includegraphics[height=2.cm]{/home/edisz/Documents/Uni/Projects/PHD/MISC/AG_presentations/two/fig/postgresql.png}};
+		% PostGIS
+   		\filldraw[fill=gray2] (5.4cm,0cm) circle (1.5cm) node [inner sep=0pt] {\includegraphics[height=2.cm]{/home/edisz/Documents/Uni/Projects/PHD/MISC/AG_presentations/two/fig/postgis.png}};
+		% GRASS
+		 \filldraw[fill=gray2] (8.1cm,0cm) circle (1.5cm) node [inner sep=0pt] {\includegraphics[height=2.cm]{/home/edisz/Documents/Uni/Projects/PHD/MISC/AG_presentations/two/fig/grass.png}};
+		% LATEX
+		 \filldraw[fill=gray2] (10.8cm,0cm) circle (1.5cm) node [inner sep=0pt] {\includegraphics[width=2.cm]{/home/edisz/Documents/Uni/Projects/PHD/MISC/AG_presentations/two/fig/latex.png}};
+		% github
+		\filldraw[fill=gray2] (13.5cm,0cm) circle (1.5cm) node [inner sep=0pt] {\includegraphics[width=3cm]{/home/edisz/Documents/Uni/Projects/PHD/MISC/AG_presentations/two/fig/github.png}};
+    \end{scope}
+\end{tikzpicture}
+\end{adjustbox}
+\end{frame}
+
+
+
+
+\section{Big Data}
+\subsection{Big Data}
+\begin{frame}
+\frametitle{II - BigData in eco(toxico)logy}
+\begin{adjustbox}{max totalsize={.9\textwidth}{.8\textheight},center}
+\begin{tikzpicture}
+	\definecolor{gray2}{RGB}{230,230,230}
+	\tikzstyle{every node}=[font=\LARGE]
+    \begin{scope}[fill opacity=0.5, text opacity=1]
+    	\filldraw[fill=background] (0,0) circle (4cm);
+        \filldraw[fill=gray] (2.12cm:6cm) circle (4cm) node {$   Eco(toxico)logy$};
+        \filldraw[fill=hilight] (0cm:6cm) circle (4cm) node {$Big Data$};
+    \end{scope}
+\end{tikzpicture}
+\end{adjustbox}	
+\end{frame}
+
+
+
+
+\section{}
+\begin{frame}
+\frametitle{}
+\vspace{1em}
+\center
+\Large \textcolor{title}{Data in Eco(toxico)logy} \\[1em]
+Eduard Szöcs \\[0.3em]
+\tiny \textcolor{gray}{Institute for Environmental Sciences, University of Koblenz-Landau} \\[5em]
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\normalsize
+\faEnvelope~~~\href{mailto:szoecs@uni-landau.de}{szoecs@uni-landau.de} \\[.5em]
+\faLaptop~~~\href{http://edild.github.io/}{http://edild.github.io/ }\\[.5em]
+\faTwitter~~~\href{http://twitter.com/EduardSzoecs}{@EduardSzoecs}
+\end{column}
+\begin{column}{0.38\textwidth}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+
+
+\end{document}
